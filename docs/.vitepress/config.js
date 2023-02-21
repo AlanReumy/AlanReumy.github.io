@@ -1,7 +1,6 @@
 export default {
   title: `vikoala 的个人小站`,
   description: '一个前端开发者',
-  base: '/',
   themeConfig: {
     nav: [
       { text: '主页', link: '/' },
