@@ -136,6 +136,10 @@ export default {
             { text: "交叉类型", link: "/blog/frontend/ts/intersection-type" },
             { text: "装饰器", link: "/blog/frontend/ts/decorators" },
             { text: "declare 作用", link: "/blog/frontend/ts/declare" },
+            {
+              text: "协变与逆变",
+              link: "/blog/frontend/ts/contravariance-covariance",
+            },
           ],
         },
       ],
