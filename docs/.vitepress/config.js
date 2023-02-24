@@ -216,7 +216,9 @@ export default {
       "/blog/frontend/case": [
         {
           text: "需求案例",
-          items: [{ text: "导航栏模式切换", link: "/blog/frontend/case" }],
+          items: [
+            { text: "导航栏模式切换", link: "/blog/frontend/case/nav-mix-mod" },
+          ],
         },
       ],
       "/blog/book/": [
