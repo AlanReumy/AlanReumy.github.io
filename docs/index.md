@@ -5,6 +5,9 @@ hero:
   name: zmlnf 的个人小站
   text: 一个前端开发者
   tagline: 求知若饥，谦虚若愚
+  image:
+    src: ./logo.png
+    alt: VitePress
   actions:
     - theme: brand
       text: 进入博客
