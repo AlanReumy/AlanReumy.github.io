@@ -6,7 +6,7 @@ hero:
   text: 一个前端开发者
   tagline: 求知若饥，谦虚若愚
   image:
-    src: ./logo.png
+    src: /logo.png
     alt: VitePress
   actions:
     - theme: brand
