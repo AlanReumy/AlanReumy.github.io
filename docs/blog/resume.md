@@ -7,15 +7,13 @@
     <div style="display:flex">
         <div>男</div>
         <div style="margin:0 10px;">|</div>
-        <div>前端开发</div>
-        <div style="margin:0 10px;">|</div>
         <div>21岁</div>
         <div style="margin:0 10px;">|</div>
         <div>13036397961</div>
         <div style="margin:0 10px;">|</div>
         <div>vikoala@foxmail.com</div>
         <div style="margin:0 10px;">|</div>
-        <div>Github: zmlnf</div>
+        <div>Github: danyuan30</div>
     </div>
   </div>
 </div>
@@ -57,10 +55,9 @@
 - 技术栈：Vue3、Typescript、Vite
 - 项目：加密支付网关、渲染农场
 - 实习内容：
-  1. 从零搭建前端项目，使用前端工具链如 Eslint、prettier、commitlint、husky 等工具提高项目工程化和规范性。
+  1. 从零搭建前端项目，使用前端工具链如 Eslint、prettier、commitlint、husky 等工具提高项目工程化。
   2. 学习区块链概念及相关技术栈，使用 hardhat、solidity 进行简单合约开发。
-  3. 进行前后端交互，配合后端通过混合加密对敏感信息进行加密。
-  4. 优化用户体验和包体积大小，利用 Vite 构建工具进行代码分割。
+  3. 优化用户体验和包体积大小，利用 Vite 构建工具进行代码分割。
 - 实习感悟：
   1. 学习了区块链概念、原理及技术，了解前沿区块链发展方向。
   2. 熟练掌握了前端工程化工具链，构建了前端工程化思维。
