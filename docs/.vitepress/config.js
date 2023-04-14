@@ -46,6 +46,15 @@ export default {
           ],
         },
         {
+          text: "后端",
+          items: [
+            {
+              text: "golang",
+              link: "/blog/backend/golang/goroutine",
+            },
+          ],
+        },
+        {
           text: "区块链",
           items: [{ text: "基础概念", link: "/blog/blockchain/basic" }],
         },
@@ -219,6 +228,12 @@ export default {
           items: [
             { text: "导航栏模式切换", link: "/blog/frontend/case/nav-mix-mod" },
           ],
+        },
+      ],
+      "/blog/backend/golang":[
+        {
+          text: "Go 中的协程",
+          link: "/blog/backend/golang/goroutine",
         },
       ],
       "/blog/book/": [
