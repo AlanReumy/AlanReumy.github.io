@@ -1,5 +1,5 @@
 export default {
-  title: `zmlnf 的个人小站`,
+  title: `半糖梓铭 的个人小站`,
   description: "一个前端开发者",
   themeConfig: {
     nav: [
