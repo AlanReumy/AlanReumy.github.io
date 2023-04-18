@@ -14,7 +14,7 @@ hero:
       link: /blog/
     - theme: alt
       text: 看看 Github
-      link: https://github.com/zmlnf/
+      link: https://github.com/bantangzm/
 
 features:
   - icon: 🚀
