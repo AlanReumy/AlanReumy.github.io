@@ -165,6 +165,7 @@ export default {
               text: "cookie session token 的区别",
               link: "/blog/frontend/browser/cookie-session-token",
             },
+            { text: "浏览器安全", link: "/blog/frontend/browser/safety" },
           ],
         },
       ],
