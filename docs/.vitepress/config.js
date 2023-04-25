@@ -55,6 +55,15 @@ export default {
           ],
         },
         {
+          text: '计算机基础',
+          items: [
+            {
+              text: '设计模式',
+              link: '/blog/design-pattern/'
+            }
+          ]
+        },
+        {
           text: "区块链",
           items: [{ text: "基础概念", link: "/blog/blockchain/basic" }],
         },
@@ -103,6 +112,17 @@ export default {
             { text: "WebSockets 入门", link: "/blog/frontend/js/ws" },
           ],
         },
+      ],
+      "/blog/design-pattern/":[
+        {
+          text: '设计模式',
+          items: [
+            {
+              text: '单例模式',
+              link: '/blog/design-pattern/singleton'
+            }
+          ]
+        }
       ],
       "/blog/frontend/node": [
         {
