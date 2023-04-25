@@ -228,6 +228,7 @@ export default {
           text: "需求案例",
           items: [
             { text: "导航栏模式切换", link: "/blog/frontend/case/nav-mix-mod" },
+            { text: "前端监控SDK简单实现", link: "/blog/frontend/case/frontend-monitoring" },
           ],
         },
       ],
