@@ -32,6 +32,10 @@ export default {
               link: "/blog/frontend/ts/basic",
             },
             {
+              text: "CLI 开发(全英)",
+              link: "/blog/frontend/cli/01_before_starting",
+            },
+            {
               text: "浏览器",
               link: "/blog/frontend/browser/cache",
             },
@@ -55,13 +59,13 @@ export default {
           ],
         },
         {
-          text: '计算机基础',
+          text: "计算机基础",
           items: [
             {
-              text: '设计模式',
-              link: '/blog/design-pattern/'
-            }
-          ]
+              text: "设计模式",
+              link: "/blog/design-pattern/",
+            },
+          ],
         },
         {
           text: "区块链",
@@ -113,16 +117,16 @@ export default {
           ],
         },
       ],
-      "/blog/design-pattern/":[
+      "/blog/design-pattern/": [
         {
-          text: '设计模式',
+          text: "设计模式",
           items: [
             {
-              text: '单例模式',
-              link: '/blog/design-pattern/singleton'
-            }
-          ]
-        }
+              text: "单例模式",
+              link: "/blog/design-pattern/singleton",
+            },
+          ],
+        },
       ],
       "/blog/frontend/node": [
         {
@@ -168,6 +172,17 @@ export default {
             {
               text: "协变与逆变",
               link: "/blog/frontend/ts/contravariance-covariance",
+            },
+          ],
+        },
+      ],
+      "/blog/frontend/cli": [
+        {
+          text: "Build CLI tool tutorial",
+          items: [
+            {
+              text: "01.Before Starting",
+              link: "/blog/frontend/cli/01_before_starting",
             },
           ],
         },
@@ -248,11 +263,14 @@ export default {
           text: "需求案例",
           items: [
             { text: "导航栏模式切换", link: "/blog/frontend/case/nav-mix-mod" },
-            { text: "前端监控SDK简单实现", link: "/blog/frontend/case/frontend-monitoring" },
+            {
+              text: "前端监控SDK简单实现",
+              link: "/blog/frontend/case/frontend-monitoring",
+            },
           ],
         },
       ],
-      "/blog/backend/golang":[
+      "/blog/backend/golang": [
         {
           text: "Go 中的协程",
           link: "/blog/backend/golang/goroutine",
@@ -261,7 +279,13 @@ export default {
       "/blog/book/": [
         {
           text: "阅读",
-          items: [{ text: "认知觉醒", link: "/blog/book/renzhi" }],
+          items: [
+            { text: "认知觉醒", link: "/blog/book/renzhi" },
+            {
+              text: "被讨厌的勇气",
+              link: "/blog/book/The-Courage-to-Be-Disliked",
+            },
+          ],
         },
       ],
       "/blog/thinking/": [
