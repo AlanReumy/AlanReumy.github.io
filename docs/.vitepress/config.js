@@ -184,6 +184,10 @@ export default {
               text: "01.Before Starting",
               link: "/blog/frontend/cli/01_before_starting",
             },
+            {
+              text: "02.What is Bash and Shell",
+              link: "/blog/frontend/cli/02_what_is_bash_shell",
+            },
           ],
         },
       ],
