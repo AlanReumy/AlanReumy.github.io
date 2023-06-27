@@ -298,7 +298,7 @@ export default {
           items: [
             { text: "2021 年终总结", link: "/blog/thinking/2021" },
             { text: "2022 年终总结", link: "/blog/thinking/2022" },
-            { text: "The 5am project 实验感悟", link: "/blog/thinking/2022" },
+            { text: "The 5am project 实验感悟", link: "/blog/thinking/five-am-project" },
           ],
         },
       ],
