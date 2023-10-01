@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: Alwalr 的个人小站
+  name: Awalter 的个人小站
   text: 一个前端开发者
   tagline: 求知若饥，谦虚若愚
   image:
