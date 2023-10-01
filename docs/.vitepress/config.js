@@ -1,5 +1,5 @@
 export default {
-  title: `半糖梓铭 的个人小站`,
+  title: `Awalter 的个人小站`,
   description: "一个前端开发者",
   themeConfig: {
     nav: [
@@ -8,7 +8,7 @@ export default {
     ],
     footer: {
       message: "Released under the MIT License.",
-      copyright: "Copyright © 2019-present zmlnf",
+      copyright: "Copyright © 2019-present Awalter",
     },
     sidebar: {
       "/blog/": [

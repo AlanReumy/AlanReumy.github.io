@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: 半糖梓铭 的个人小站
+  name: Alwalr 的个人小站
   text: 一个前端开发者
   tagline: 求知若饥，谦虚若愚
   image:
@@ -14,7 +14,7 @@ hero:
       link: /blog/
     - theme: alt
       text: 看看 Github
-      link: https://github.com/bantangzm/
+      link: https://github.com/Awalter0411/
 
 features:
   - icon: 🚀
