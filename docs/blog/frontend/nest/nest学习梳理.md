@@ -1,4 +1,6 @@
 ![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20240806223955.png)
+## 基础概念
+
 **controller**：控制器，用于处理路由，解析请求参数
 
 **handler**：控制器里处理路由的方法

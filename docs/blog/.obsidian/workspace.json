@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/nest/nest基础概念梳理.md",
+                "file": "frontend/nest/nest学习梳理.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/nest/nest基础概念梳理.md",
+                "file": "frontend/nest/nest学习梳理.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "frontend/nest/nest基础概念梳理.md",
+                "file": "frontend/nest/nest学习梳理.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "frontend/nest/nest基础概念梳理.md"
+                "file": "frontend/nest/nest学习梳理.md"
               }
             }
           }
@@ -151,7 +151,7 @@
     "Pasted image 20240806223732.png",
     "Pasted image 20240806223717.png",
     "frontend/node/custom-cli.md",
-    "frontend/nest/nest基础概念梳理.md",
+    "frontend/nest/nest学习梳理.md",
     "frontend/nest",
     "internship/baidu.md"
   ]
