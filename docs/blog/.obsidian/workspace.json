@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "thinking/index.md",
+                "file": "clip/构建视频框架.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "thinking/index.md",
+                "file": "clip/构建视频框架.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "thinking/index.md",
+                "file": "clip/构建视频框架.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "thinking/index.md"
+                "file": "clip/构建视频框架.md"
               }
             }
           }
@@ -148,8 +148,11 @@
   },
   "active": "beb8e81e9cc2b5ba",
   "lastOpenFiles": [
-    "thinking/five-am-project.md",
+    "index.md",
+    "clip/构建视频框架.md",
+    "clip",
     "thinking/index.md",
+    "thinking/five-am-project.md",
     "thinking/在马力的这一年.md",
     "frontend/nest/nest学习梳理.md",
     "Pasted image 20240806223732.png",
