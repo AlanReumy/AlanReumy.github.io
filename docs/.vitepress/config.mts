@@ -24,6 +24,10 @@ export default {
               link: "/blog/frontend/vue/reactive",
             },
             {
+              text: "React",
+              link: "/blog/frontend/react/setState",
+            },
+            {
               text: "Node.js",
               link: "/blog/frontend/node/custom-cli",
             },
@@ -150,6 +154,14 @@ export default {
             { text: "nextTick 实现原理", link: "/blog/frontend/vue/nextTick" },
           ],
         },
+      ],
+      "/blog/frontend/react": [
+        {
+          text: "React",
+          items: [
+            { text: "setState", link: "/blog/frontend/react/setState" },
+          ],
+        }
       ],
       "/blog/frontend/ts": [
         {
