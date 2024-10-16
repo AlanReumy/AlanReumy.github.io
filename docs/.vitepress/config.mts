@@ -160,7 +160,7 @@ export default {
           text: "React",
           items: [
             { text: "setState", link: "/blog/frontend/react/setState" },
-            { text: 'React.memo 实现原理', link: '/blog/frontend/react/memo' }
+            { text: 'React.memo', link: '/blog/frontend/react/memo' }
           ],
         }
       ],
