@@ -218,6 +218,10 @@ export default {
               link: "/blog/frontend/browser/cookie-session-token",
             },
             { text: "浏览器安全", link: "/blog/frontend/browser/safety" },
+            {
+              text: "输入URL到页面展示发生了什么",
+              link: "/blog/frontend/browser/navigation",
+            },
           ],
         },
       ],
