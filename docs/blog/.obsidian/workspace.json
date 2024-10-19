@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "clip/4. 常见镜头组接.md",
+                "file": "frontend/browser/cache.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "clip/4. 常见镜头组接.md",
+                "file": "frontend/browser/cache.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "clip/4. 常见镜头组接.md",
+                "file": "frontend/browser/cache.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "clip/4. 常见镜头组接.md"
+                "file": "frontend/browser/cache.md"
               }
             }
           }
@@ -148,10 +148,14 @@
   },
   "active": "beb8e81e9cc2b5ba",
   "lastOpenFiles": [
+    "frontend/browser/cookie-session-token.md",
+    "frontend/browser/navigation.md",
+    "frontend/browser/safety.md",
+    "frontend/browser/layout-painting.md",
+    "frontend/browser/cache.md",
+    "clip/4. 常见镜头组接.md",
     "thinking/growup.md",
     "frontend/browser/url.md",
-    "frontend/browser/navigation.md",
-    "clip/4. 常见镜头组接.md",
     "frontend/react/React.memo 实现原理.md",
     "frontend/react/memo.md",
     "未命名 1",
