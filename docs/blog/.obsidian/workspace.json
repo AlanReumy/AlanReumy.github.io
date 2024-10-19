@@ -148,6 +148,8 @@
   },
   "active": "beb8e81e9cc2b5ba",
   "lastOpenFiles": [
+    "frontend/node/file-upload.md",
+    "frontend/node/oss-upload.md",
     "frontend/browser/cache.md",
     "frontend/browser/cookie-session-token.md",
     "frontend/browser/navigation.md",

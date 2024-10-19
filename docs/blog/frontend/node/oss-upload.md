@@ -72,3 +72,144 @@ put();
 我们先创建个 RAM 子用户，再分配给他某些权限，这样就算泄漏了，是不是能做的事情就更少了？
 
 当然就更安全。
+
+![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241019115747.png)
+
+## 上传方案
+
+有了 OSS 服务之后，我们上传文件还需要经过应用服务器么？
+
+可以经过也可以不经过。
+
+如果经过应用服务器，那就要客户端上传文件之后，我们在服务里接受文件，上传 OSS：
+
+![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241019120056.png)
+
+这样当然是可以的，还能保护 accessKey 不被人窃取。
+
+只是会浪费应用服务器的流量。
+
+那如果不经过呢？
+
+![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241019120109.png)
+在客户端用 accessKey 把文件传到 OSS，之后把 URL 传给应用服务器就好了。
+
+这样减少了应用服务器的流量消耗，但是增加了 accessKey 暴露的风险。
+
+各有各的坏处。
+
+那有没有啥两全其美的办法呢？
+
+有。
+
+![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241019120136.png)
+
+
+它给出的解决方案就是生成一个临时的签名来用，代码是这样的：
+
+```js
+const OSS = require('ali-oss')
+
+async function main() {
+
+    const config = {
+        region: 'oss-cn-beijing',
+        bucket: 'guang-333',
+        accessKeyId: '',
+        accessKeySecret: '',
+    }
+
+    const client = new OSS(config);
+    
+    const date = new Date();
+    
+    date.setDate(date.getDate() + 1);
+    
+    const res = client.calculatePostSignature({
+        expiration: date.toISOString(),
+        conditions: [
+            ["content-length-range", 0, 1048576000], //设置上传文件的大小限制。      
+        ]
+    });
+    
+    console.log(res);
+    
+    const location = await client.getBucketLocation();
+    
+    const host = `http://${config.bucket}.${location.location}.aliyuncs.com`;
+
+    console.log(host);
+}
+
+main();
+```
+
+前端：
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios@1.6.5/dist/axios.min.js"></script>
+</head>
+<body>
+    <input id="fileInput" type="file"/>
+    
+    <script>
+        const fileInput = document.getElementById('fileInput');
+
+        async function getOSSInfo() {
+            await '请求应用服务器拿到临时凭证';
+            return {
+                OSSAccessKeyId: '',
+                Signature: '',
+                policy: 'eyJleHBpcmF0aW9uIjoiMjAyNC0wMS0yMFQwMzoyNjowOC4xMDZaIiwiY29uZGl0aW9ucyI6W1siY29udGVudC1sZW5ndGgtcmFuZ2UiLDAsMTA0ODU3NjAwMF1dfQ==',
+                host: 'http://guang-333.oss-cn-beijing.aliyuncs.com'
+            }
+        }
+
+        fileInput.onchange = async () => {
+            const file = fileInput.files[0];
+
+            const ossInfo = await getOSSInfo();
+
+
+            const formdata = new FormData()
+ 
+            formdata.append('key', file.name);
+            formdata.append('OSSAccessKeyId', ossInfo.OSSAccessKeyId)
+            formdata.append('policy', ossInfo.policy)
+            formdata.append('signature', ossInfo.Signature)
+            formdata.append('success_action_status', '200')
+            formdata.append('file', file)
+
+            const res = await axios.post(ossInfo.host, formdata);
+            if(res.status === 200) {
+                
+                const img = document.createElement('img');
+                img.src = ossInfo.host + '/' + file.name
+                document.body.append(img);
+
+                alert('上传成功');
+            }
+        }
+    </script>
+</body>
+</html>
+
+```
+
+这里 getOSSInfo 应该是请求服务端的接口，拿到刚才我们控制台输出的那些东西。
+
+这里就简化下，直接写死在代码里了。
+
+这就是完美的 OSS 上传方案。
+
+服务端用 RAM 子用户的 accessKey 来生成临时签名，然后返回给客户端，客户端用这个来直传文件到 OSS。
+
+因为临时的签名过期时间很短，我们设置的是一天，所以暴露的风险也不大。
+
+这样服务端就根本没有接受文件的压力，只要等客户端上传完之后，带上 URL 就好了。
