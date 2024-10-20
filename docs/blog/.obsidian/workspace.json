@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/node/node-send-email.md",
+                "file": "frontend/node/node-log.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "node-send-email"
+              "title": "node-log"
             }
           }
         ]
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/node/node-send-email.md",
+                "file": "frontend/node/node-log.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "node-send-email 的反向链接列表"
+              "title": "node-log 的反向链接列表"
             }
           },
           {
@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "frontend/node/node-send-email.md",
+                "file": "frontend/node/node-log.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "node-send-email 的出链列表"
+              "title": "node-log 的出链列表"
             }
           },
           {
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "frontend/node/node-send-email.md"
+                "file": "frontend/node/node-log.md"
               },
               "icon": "lucide-list",
-              "title": "node-send-email 的大纲"
+              "title": "node-log 的大纲"
             }
           }
         ]
@@ -164,8 +164,9 @@
   },
   "active": "4356ccb312dc0979",
   "lastOpenFiles": [
-    "frontend/node/nest-core.md",
     "frontend/node/node-send-email.md",
+    "frontend/node/node-log.md",
+    "frontend/node/nest-core.md",
     "frontend/node/oss-upload.md",
     "frontend/node/file-upload.md",
     "frontend/browser/cache.md",
