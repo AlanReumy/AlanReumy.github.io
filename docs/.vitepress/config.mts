@@ -145,6 +145,7 @@ export default {
             { text: "oss 文件上传方案", link: "/blog/frontend/node/oss-upload" },
             { text: "nest 核心概念", link: "/blog/frontend/node/nest-core" },
             { text: "node 发邮件", link: "/blog/frontend/node/node-send-email" },
+            { text: "node 日志", link: "/blog/frontend/node/node-log" },
           ],
         },
       ],
