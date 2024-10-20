@@ -200,10 +200,42 @@ logger.debug(66666666);
 
 ### 文件大小分割
 
-winston 支持按照大小自动分割文件，这样就不用担心所有日志都写在一个文件里，那这个文件最终会特别大：
+`winston` 支持按照大小自动分割文件，这样就不用担心所有日志都写在一个文件里，那这个文件最终会特别大：
 
 ![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241020142951.png)
 
 ### 日期分割
 
-一般日志都是按照日期自动分割的，比如 2024-10-20 的日志文件，2023-10-29 的日志文件，这样之后也好管理。
+一般日志都是按照日期自动分割的，比如 2024-10-20 的日志文件，2024-10-20 的日志文件，这样之后也好管理。
+
+winston 也是支持的，不过要换别的 `Transport` 。
+
+![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241020143233.png)
+
+`Console`、`File`、`Http`、`Stream` 这几个 `Transport` 是内置的。
+
+我们可以使用这里的 `DailyRotateFile` 就是按照日期滚动存储到日志文件的 `Transport`。
+
+```js
+import winston from 'winston';
+import 'winston-daily-rotate-file';
+
+const logger = winston.createLogger({
+    level: 'debug',
+    format: winston.format.simple(),
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.DailyRotateFile({
+            level: 'info',
+            dirname: 'log2',
+            filename: 'test-%DATE%.log',
+            datePattern: 'YYYY-MM-DD-HH-mm',
+            maxSize: '1k'
+        })
+    ]
+});
+
+logger.info('xxx');
+logger.error('xxxx');
+logger.debug(66666666);
+```
