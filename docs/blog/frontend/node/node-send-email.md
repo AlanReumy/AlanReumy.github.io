@@ -26,3 +26,97 @@
 
 开启后，然后在帮助中心页面搜索授权码
 
+![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241020133052.png)
+发邮件代码：
+
+```JS
+const nodemailer = require("nodemailer");
+
+const transporter = nodemailer.createTransport({
+    host: "smtp.qq.com",
+    port: 587,
+    secure: false,
+    auth: {
+        user: 'xxxxx@qq.com',
+        pass: '你的授权码'
+    },
+});
+
+async function main() {
+  const info = await transporter.sendMail({
+    from: '"xxxxx@xx.com',
+    to: "发到的邮箱",
+    subject: "Hello", 
+    text: "xxxxx"
+  });
+
+  console.log("邮件发送成功：", info.messageId);
+}
+
+main().catch(console.error);
+```
+
+收邮件代码：
+
+```js
+const Imap = require('imap');
+
+const imap = new Imap({
+    user: 'xxx@qq.com',
+    password: '你的授权码',
+    host: 'imap.qq.com',
+    port: 993,
+    tls: true
+});
+
+imap.once('ready', () => {
+    imap.openBox('INBOX', true, (err) => {
+        imap.search([['SEEN'], ['SINCE', new Date('2023-07-10 19:00:00').toLocaleString()]], (err, results) => {
+            if (!err) {
+                console.log(results);
+            } else {
+                throw err;
+            }
+        });
+    });
+});
+
+imap.connect();
+```
+
+`nest` 中实现发邮件的 `service` 代码：
+
+```ts
+import { Injectable } from '@nestjs/common';
+import { createTransport, Transporter} from 'nodemailer';
+
+@Injectable()
+export class EmailService {
+
+    transporter: Transporter
+    
+    constructor() {
+        this.transporter = createTransport({
+            host: "smtp.qq.com",
+            port: 587,
+            secure: false,
+            auth: {
+                user: 'xx@xx.com',
+                pass: '你的授权码'
+            },
+        });
+    }
+
+    async sendMail({ to, subject, html }) {
+      await this.transporter.sendMail({
+        from: {
+          name: '系统邮件',
+          address: 'xx@xx.com'
+        },
+        to,
+        subject,
+        html
+      });
+    }
+}
+```
