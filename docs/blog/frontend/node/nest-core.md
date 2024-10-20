@@ -16,9 +16,12 @@
 - 之后会再递归调用每个 Module 的 provider、controller 的还有 Module 自身的 onApplicationBootstrap 生命周期方法。
 - 这样 Nest 就能对外提供服务了。
 - 通过下面的AOP切面后，Nest 销毁的时候，也会依次调用 Module 的 provider、controller 还有 Module 自己的 onModuleDestroy 方法、beforeApplicationShutdown 还有 onApplicationShutdown 的生命周期方法。后两者的区别是 beforeApplication 可以拿到终止信号。
-- 这就是 Nest 从创建、启动，到处理请求返回响应，再就是销毁的整个流程。
-- 通过 IOC 实现了对象的自动创建、依赖的自动组装。IOC 内部的 Module 和 Provider 也都支持动态创建，灵活度很高。
-- 通过 AOP 实现了通用逻辑的抽取和复用。
+
+ **这就是 Nest 从创建、启动，到处理请求返回响应，再就是销毁的整个流程。**
+
+## IOC （控制反转）
+
+通过 IOC 实现了对象的自动创建、依赖的自动组装。IOC 内部的 Module 和 Provider 也都支持动态创建，灵活度很高。
 
 ## AOP 切面
 

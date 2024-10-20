@@ -142,6 +142,8 @@ export default {
             },
             { text: "node 包管理", link: "/blog/frontend/node/pkg-mgr" },
             { text: "node 文件上传", link: "/blog/frontend/node/file-upload" },
+            { text: "oss 文件上传方案", link: "/blog/frontend/node/oss-upload" },
+            { text: "nest 核心概念", link: "/blog/frontend/node/nest-core" }
           ],
         },
       ],
