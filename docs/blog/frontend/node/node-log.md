@@ -239,3 +239,126 @@ logger.info('xxx');
 logger.error('xxxx');
 logger.debug(66666666);
 ```
+
+### 格式化
+
+日志可以通过 format 指定格式，比如：simple、json、prettyPrint、label、colorize 等，也可以使用 combine 让他们相结合
+
+```js
+const logger = winston.createLogger({
+  level: "debug",
+  format: winston.format.combine(
+    winston.format.simple(),
+    winston.format.json()
+  ),
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.DailyRotateFile({
+      level: "info",
+      dirname: "log2",
+      filename: "test-%DATE%.log",
+      datePattern: "YYYY-MM-DD-HH-mm",
+      maxSize: "1k",
+    }),
+  ],
+});
+```
+
+如果不同的 transport 需要指定不同的格式，也可以给每个 transport 单独指定 format 
+
+### 配置拆分
+
+如果我有的日志只想 console，而有的日志希望写入文件，而且配置都不同，我们可以创建多个 logger 实例，每个 logger 实例有不同的 format、transport、level 等配置：
+
+```js
+import winston from 'winston';
+
+winston.loggers.add('console', {
+    format: winston.format.combine(
+        winston.format.colorize(),
+        winston.format.simple()
+    ),
+    transports: [
+        new winston.transports.Console()
+    ]
+});
+
+winston.loggers.add('file', {
+    format:winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json()
+    ),
+    transports: [
+        new winston.transports.File({
+            dirname: 'log4',
+            filename: 'test.log',
+            format: winston.format.json()
+        })
+    ]
+});
+
+
+const logger1 = winston.loggers.get('console');
+
+logger1.info('aaaaa');
+logger1.error('bbbbb');
+
+const logger2 = winston.loggers.get('file');
+
+logger2.info('xxxx');
+logger2.info('yyyy');
+```
+
+### 指定未捕获的错误日志
+
+winston 还支持指定如何处理未捕获的错误的日志
+
+```js
+import winston from 'winston';
+
+const logger = winston.createLogger({
+    level: 'debug',
+    format: winston.format.simple(),
+    transports: [
+        new winston.transports.Console()
+    ],
+    exceptionHandlers: [
+        new winston.transports.File({
+            filename: 'error.log'
+        })
+    ]
+});
+
+throw new Error('xxx');
+
+logger.info('xxx');
+logger.error('xxxx');
+logger.debug(66666666);
+```
+
+除了 error 外，Promise 的未捕获异常也可以指定如何处理日志：
+
+```js
+import winston from 'winston';
+
+const logger = winston.createLogger({
+    level: 'debug',
+    format: winston.format.simple(),
+    transports: [
+        new winston.transports.Console()
+    ],
+    rejectionHandlers: [
+        new winston.transports.File({
+            filename: 'rejection.log'
+        })
+    ]
+});
+
+(async function(){
+    throw Error('yyy');
+})();
+
+logger.info('xxx');
+logger.error('xxxx');
+logger.debug(66666666);
+```
