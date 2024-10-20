@@ -39,7 +39,7 @@ export class AppController {
 
 ![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241020140822.png)
 
-此外，你还可以自定义日志打印的方式，定义一个实现 LoggerService 接口的类：
+此外，你还可以自定义日志打印的方式，定义一个实现 `LoggerService` 接口的类：
 
 ```ts
 import { LoggerService, LogLevel } from '@nestjs/common';
@@ -59,18 +59,120 @@ export class MyLogger implements LoggerService {
 }
 ```
 
-在创建应用时指定这个 logger：
+在创建应用时指定这个 `logger`：
 
 ![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241020141006.png)
 
-也可以不自己实现 LoggerService 的全部方法，而是继承 ConsoleLogger，重写一些方法：
+我们可以单独搞一个模块来放 `Logger`，添加 `@Injectable()` 装饰器，代表这是一个 `provider`，并且要在 `Module` 里引入：
 
 ```ts
-import { ConsoleLogger } from '@nestjs/common';
+import { Inject } from '@nestjs/common';
+import { ConsoleLogger, Injectable } from '@nestjs/common';
+import { AppService } from './app.service';
 
-export class MyLogger2 extends ConsoleLogger{
-    log(message: string, context: string) {
-        console.log(`[${context}]`,message)
+@Injectable()
+export class MyLogger extends ConsoleLogger {
+  @Inject(AppService)
+  private appService: AppService;
+
+  log(message, context) {
+    console.log(this.appService.getHello());
+    console.log(`[${context}]`, message);
+    console.log('--------------')
+  }
+}
+```
+
+```ts
+import { Global, Module } from '@nestjs/common';
+import { MyLogger } from 'src/MyLogger';
+
+@Global()
+@Module({
+  providers: [MyLogger],
+  exports: [MyLogger]
+})
+
+export class LoggerModule { }
+```
+
+在 AppService 里注入下：
+
+```ts
+import { Inject, Injectable } from '@nestjs/common';
+import { MyLogger } from './logger2/MyLogger';
+
+@Injectable()
+export class AppService {
+
+  @Inject(MyLogger)
+  private logger: MyLogger;
+
+  getHello(): string {
+    this.logger.log('yyy');
+    
+    return 'Hello World!';
+  }
+}
+```
+
+### 动态配置
+
+也可以声明一个动态模块，每次 imports 的时候配置下：
+
+```ts
+import { DynamicModule, Global, Module } from '@nestjs/common';
+import { MyLogger } from './MyLogger';
+
+@Module({})
+export class Logger2Module{
+    static register(options): DynamicModule {
+        return {
+            module: Logger2Module,
+            providers: [
+                MyLogger, 
+                {
+                    provide: 'LOG_OPTIONS',
+                    useValue: options
+                }
+            ],
+            exports: [MyLogger, 'LOG_OPTIONS']
+        }
     }
 }
 ```
+
+```ts
+import { Inject } from '@nestjs/common';
+import { ConsoleLogger, Injectable } from '@nestjs/common';
+import { AppService } from './app.service';
+
+@Injectable()
+export class MyLogger extends ConsoleLogger {
+  @Inject(AppService)
+  private appService: AppService;
+
+  @Inject('LOG_OPTIONS')
+  private logOptions: Record<string, any>
+
+  log(message, context) {
+    console.log(this.logOptions);
+    console.log(this.appService.getHello());
+    console.log(`[${context}]`, message);
+    console.log('--------------')
+  }
+
+}
+```
+
+每次 imports 的时候传入不同的配置：
+
+![](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241020141908.png)
+
+## 使用 winston 打印日志
+
+打印日志需要有的功能：
+
+- 写入文件或数据库
+- 分级别
+- 带上时间戳
