@@ -175,4 +175,35 @@ export class MyLogger extends ConsoleLogger {
 
 - 写入文件或数据库
 - 分级别
-- 带上时间戳
+- 带上时间戳、代码位置等信息
+
+### winston 基本使用
+
+```js
+import winston from 'winston';
+
+const logger = winston.createLogger({
+    level: 'debug',
+    format: winston.format.simple(),
+    transports: [
+        new winston.transports.Console(),
+        new winston.transports.File({ 
+            dirname: 'log', filename: 'test.log' 
+        }),
+    ]
+});
+
+logger.info('xxx');
+logger.error('xxxx');
+logger.debug(66666666);
+```
+
+### 文件大小分割
+
+winston 支持按照大小自动分割文件，这样就不用担心所有日志都写在一个文件里，那这个文件最终会特别大：
+
+![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241020142951.png)
+
+### 日期分割
+
+一般日志都是按照日期自动分割的，比如 2024-10-20 的日志文件，2023-10-29 的日志文件，这样之后也好管理。
