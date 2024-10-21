@@ -72,6 +72,8 @@ React Server Component 把数据请求的部分放在服务端，由服务端直
 
 使用 React Server Component，因为服务端组件的代码不会打包到客户端代码中，它可以减小包（bundle）的大小。且在 React Server Component 中，可以直接访问后端资源。当然因为在服务端运行，对应也有一些限制，比如不能使用 useEffect 和客户端事件等。
 
+### RSC 和 SSR 的比较
+
 了解了 RSC 和 SSR 这两个基本概念，现在让我们来回顾下。表面上看，RSC 和 SSR 非常相似，都发生在服务端，都涉及到渲染，目的都是更快的呈现内容。但实际上，这两个技术概念是相互独立的。RSC 和 SSR 既可以各自单独使用，又可以搭配在一起使用（搭配在一起使用的时候是互补的）。
 
 正如它们的名字所表明的那样，Server-side Rendering 的重点在于 **Rendering**，React Server Components 的重点在于 **Components**。
@@ -82,6 +84,7 @@ React Server Component 把数据请求的部分放在服务端，由服务端直
 
 SSR 是在服务端将组件渲染成 HTML 发送给客户端，而 RSC 是将组件渲染成一种特殊的格式，我们称之为 RSC Payload。这个 RSC Payload 的渲染是在服务端，但不会一开始就返回给客户端，而是在客户端请求相关组件的时候才返回给客户端，RSC Payload 会包含组件渲染后的数据和样式，客户端收到 RSC Payload 后会重建 React 树，修改页面 DOM。
 
+## Suspense 和 Streaming 
 
 使用 SSR，需要经过一系列的步骤，用户才能查看页面、与之交互。具体这些步骤是：
 
@@ -90,4 +93,26 @@ SSR 是在服务端将组件渲染成 HTML 发送给客户端，而 RSC 是将�
 3. 将页面的 HTML、CSS、JavaScript 发送到客户端
 4. 使用 HTML 和 CSS 生成不可交互的用户界面（non-interactive UI）
 5. React 对用户界面进行水合（hydrate），使其可交互（interactive UI）
+
+SSR 的缺点：
+
+1. SSR 的数据获取必须在组件渲染之前
+2. 组件的 JavaScript 必须先加载到客户端，才能开始水合
+3. 所有组件必须先水合，然后才能跟其中任意一个组件交互
+
+### Suspense
+
+为了解决这些问题，React 18 引入了 Suspense 组件。它可以允许你推迟渲染某些内容，直到满足某些条件（例如数据加载完毕）。
+
+你可以将动态组件包装在 Suspense 中，然后向其传递一个 fallback UI，以便在动态组件加载时显示。如果数据请求缓慢，使用 Suspense 流式渲染该组件，不会影响页面其他部分的渲染，更不会阻塞整个页面。
+
+### Streaming
+
+Suspense 背后的这种技术称之为 Streaming。将页面的 HTML 拆分成多个 chunks，然后逐步将这些块从服务端发送到客户端。
+
+![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241021161906.png)
+
+这样就可以更快的展现出页面的某些内容，而无需在渲染 UI 之前等待加载所有数据。提前发送的组件可以提前开始水合，这样当其他部分还在加载的时候，用户可以和已完成水合的组件进行交互，有效改善用户体验。
+
+![image.png](https://codertzm.oss-cn-chengdu.aliyuncs.com/20241021161920.png)
 
