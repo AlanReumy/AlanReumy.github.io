@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "frontend/node/node-log.md",
+                "file": "frontend/react/next-render-way.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "node-log"
+              "title": "next-render-way"
             }
           }
         ]
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "frontend/node/node-log.md",
+                "file": "frontend/react/next-render-way.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "node-log 的反向链接列表"
+              "title": "next-render-way 的反向链接列表"
             }
           },
           {
@@ -139,13 +139,14 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "frontend/node/node-log.md"
+                "file": "frontend/react/next-render-way.md"
               },
               "icon": "lucide-list",
-              "title": "node-log 的大纲"
+              "title": "next-render-way 的大纲"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -163,8 +164,9 @@
   },
   "active": "4356ccb312dc0979",
   "lastOpenFiles": [
-    "frontend/node/node-send-email.md",
     "frontend/node/node-log.md",
+    "frontend/react/next-render-way.md",
+    "frontend/node/node-send-email.md",
     "frontend/node/nest-core.md",
     "frontend/node/oss-upload.md",
     "frontend/node/file-upload.md",
@@ -193,7 +195,6 @@
     "Pasted image 20240806223732.png",
     "Pasted image 20240806223717.png",
     "frontend/node/custom-cli.md",
-    "frontend/nest",
-    "internship/baidu.md"
+    "frontend/nest"
   ]
 }
