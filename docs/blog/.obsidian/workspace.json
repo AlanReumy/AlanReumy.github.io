@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "clip/2. 高效找素材.md",
+                "file": "ai/cursor-guide.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2. 高效找素材"
+              "title": "cursor-guide"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "clip/2. 高效找素材.md"
+                "file": "ai/cursor-guide.md"
               },
               "icon": "lucide-list",
-              "title": "2. 高效找素材 的大纲"
+              "title": "cursor-guide 的大纲"
             }
           }
         ],
@@ -164,6 +164,9 @@
   },
   "active": "4356ccb312dc0979",
   "lastOpenFiles": [
+    "clip/2. 高效找素材.md",
+    "ai/cursor-guide.md",
+    "ai",
     "clip/3. 找音乐素材.md",
     "clip/1. 构建视频框架.md",
     "frontend/react/next-render-way.md",
@@ -183,9 +186,7 @@
     "frontend/react/React.memo 实现原理.md",
     "frontend/react/memo.md",
     "未命名 1",
-    "未命名",
     "clip/5. 打破常规，但能玩出惊喜的组接.md",
-    "clip/2. 高效找素材.md",
     "index.md",
     "clip",
     "thinking/index.md",
@@ -194,7 +195,6 @@
     "frontend/nest/nest学习梳理.md",
     "Pasted image 20240806223732.png",
     "Pasted image 20240806223717.png",
-    "frontend/node/custom-cli.md",
     "frontend/nest"
   ]
 }
