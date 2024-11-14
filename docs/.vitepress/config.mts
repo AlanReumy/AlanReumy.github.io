@@ -44,6 +44,10 @@ export default {
               link: "/blog/frontend/browser/cache",
             },
             {
+              text: "AI",
+              link: "/blog/ai/cursor-guide",
+            },
+            {
               text: "工具链及实践",
               link: "/blog/frontend/tool/webpack-basic",
             },
