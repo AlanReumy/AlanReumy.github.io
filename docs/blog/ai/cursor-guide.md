@@ -1,6 +1,6 @@
 # Cursor 不完全上手指北
 
-> 介绍 Cursor AI IDE 的上手指南，包括下载安装、基础操作、高级用法和技巧
+> 介绍 Cursor AI IDE 的上手指南，包括下载安装、关键功能和实用技巧
 
 ## 下载并安装 Cursor
 
@@ -252,7 +252,7 @@ codebase indexing 是将本地代码库分割成小块的语言数据，然后�
 
 使用 composer 和 chat 功能时，多用 @codebase，否则 cursor 经常不知道项目内容是什么
 
-参考：
+## 参考
 
 - [Cursor - Build Software Faster](https://docs.cursor.com/get-started)
 - [Cursor 十大使用技巧：免费无限量使用 Cursor Pro 会员指南\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1YAtReqEkH/?spm_id_from=333.337.search-card.all.click&vd_source=ec61df0d63e147463c27541f414a804d)
